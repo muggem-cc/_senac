@@ -10,8 +10,10 @@ Repositório de estudos organizado por aulas. Cada pasta em `aulas/` mantém seu
 │   ├── 001/
 │   ├── 002/
 │   └── ...
+├── .gitattributes
 ├── .gitignore
 ├── AGENTS.md
+├── GIT.md
 ├── LICENSE
 └── README.md
 ```

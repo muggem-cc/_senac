@@ -1,0 +1,5 @@
+# Arquivos de texto com finais de linha consistentes no repositório.
+* text=auto eol=lf
+
+# Arquivos binários da aula 006: manter sem conversão.
+*.webp -text

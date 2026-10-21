@@ -8,6 +8,7 @@ Este documento define como preservar a organização das aulas e manter um hist�
 - O conteúdo de cada aula fica isolado em `aulas/NNN/`. Histórico por pasta é obtido com filtros do Git; não representa um repositório ou branch independente.
 - Commits devem ser pequenos, coerentes e focados. Não misture tarefas de aulas diferentes só por conveniência.
 - Não inclua arquivos gerados, caches, credenciais, dependências instaladas ou configurações pessoais.
+- `.gitattributes` padroniza finais de linha para LF e evita conversão dos assets WebP; mantenha-o atualizado ao introduzir formatos binários ou convenções específicas.
 - Preserve alterações existentes. Antes de commitar, confira cuidadosamente o diff e o estado do diretório.
 
 ## Estrutura e escopo
