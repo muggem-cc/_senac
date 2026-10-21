@@ -71,11 +71,22 @@ main > .muted { margin: .5rem 0 0; }
 .site-footer { padding-block: 1rem; border-top: 1px solid var(--border); }
 .site-footer .container { display: flex; gap: .35rem; }
 @media (min-width: 48.01rem) {
-  main.container { display: flex; flex-direction: column; }
-  main.container > h2, main.container > .muted { align-self: flex-start; }
-  main.container > h2 { margin: auto 0 0; }
-  main.container > .muted { margin: .5rem 0 auto; }
-  main.container > .resources { margin: auto 0; }
+  main.container { display: flex; flex-direction: column; justify-content: flex-start; min-height: 0; padding-top: 1.5rem; }
+  main.container > h2 { font-size: 1.4rem; }
+  main.container > .muted { margin-top: .25rem; font-size: .875rem; }
+  main.container > .resources { width: 100%; margin-block: auto; }
+  .hero { grid-template-columns: minmax(0, 1fr) 8rem; gap: 1.75rem; }
+  .portrait-card { width: 8rem; }
+  .portrait-card figcaption { font-size: .75rem; }
+  .eyebrow { margin-bottom: .4rem; font-size: .7rem; }
+  h1 { font-size: clamp(1.7rem, 2.8vw, 2.1rem); line-height: 1.15; }
+  .hero .muted { margin-top: .4rem; font-size: .9rem; }
+  .site-header { padding-block: 18px 14px; }
+  .preview { width: clamp(8rem, 14vw, 10rem); flex-basis: clamp(8rem, 14vw, 10rem); }
+  .card { padding: .4rem; }
+  .card h3 { line-height: 1.35; }
+  .card p { margin-top: .15rem; }
+  .site-footer { padding-block: .5rem; }
 }
 @media (max-width: 48rem) {
   .container { width: min(100% - 2rem, var(--content-width)); }
@@ -106,10 +117,10 @@ main > .muted { margin: .5rem 0 0; }
   .card { align-items: stretch; flex-direction: column; gap: .875rem; padding: .875rem; }
   .preview { width: 100%; flex-basis: auto; }
   .card > div { align-self: stretch; }
-  .card h3 { margin: .2rem 0; font-size: .8rem; line-height: 1.3; }
-  .card p { margin-top: .15rem; font-size: .7rem; line-height: 1.35; }
-  .source-label { height: 1.2rem; font-size: .65rem; }
-  .source-label img { width: .8rem; height: .8rem; flex-basis: .8rem; }
+  .card h3 { margin: .2rem 0; font-size: .95rem; line-height: 1.4; }
+  .card p { margin-top: .2rem; font-size: .8rem; line-height: 1.45; }
+  .source-label { height: 1.3rem; font-size: .7rem; }
+  .source-label img { width: .9rem; height: .9rem; flex-basis: .9rem; }
   .play { width: 2rem; }
   .site-footer { padding-block: .5rem; font-size: .8rem; }
   .viewer { width: 100%; max-width: none; max-height: 100dvh; margin: auto 0 0; padding: 2.75rem .75rem .75rem; border-radius: .9rem .9rem 0 0; }
