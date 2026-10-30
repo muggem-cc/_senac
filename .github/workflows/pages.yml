@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'projetos/simple-web-page/web/**'
+      - 'projetos/simple-web-page/README.md'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
 
