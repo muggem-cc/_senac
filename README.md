@@ -10,6 +10,8 @@ Repositório de estudos organizado por projetos e materiais. As aulas são ident
 │   └── nome-do-projeto/
 ├── estudos/
 │   └── notas-e-exercicios/
+├── tools/
+│   └── aula.py
 ├── .gitattributes
 ├── .gitignore
 ├── AGENTS.md
@@ -38,4 +40,4 @@ Para consultar o histórico de uma aula, filtre as mensagens pelo prefixo, confo
 
 ## Projeto atual
 
-O site de referências atual está em `aulas/006/` e sua estrutura está documentada em `aulas/006/AULA.md`. A migração para uma pasta de projeto estável deve atualizar também o workflow do GitHub Pages e preservar alterações locais.
+O site de referências está em [`projetos/simple-web-page/`](projetos/simple-web-page/), com estrutura, execução e validação documentadas no `README.md` do projeto.

@@ -70,7 +70,13 @@ main > .muted { margin: .5rem 0 0; }
   main.container { display: flex; flex-direction: column; min-height: 0; padding-top: 1.5rem; }
   main.container > h2 { font-size: 1.4rem; }
   main.container > .muted { margin-top: .25rem; font-size: .875rem; }
-  main.container > .resources { width: 100%; margin-block: auto; }
+  main.container > .resources { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-block: auto; }
+  .card { align-items: stretch; flex-direction: column; gap: .75rem; padding: .75rem; }
+  .preview { width: 100%; flex-basis: auto; aspect-ratio: 16 / 9; }
+  .card > div { width: 100%; min-width: 0; align-self: stretch; }
+  .card h3, .card p { overflow-wrap: break-word; }
+  .card h3 { font-size: .9rem; line-height: 1.4; }
+  .card p { font-size: .8rem; line-height: 1.45; }
   .hero { grid-template-columns: minmax(0, 1fr) 8rem; gap: 1.75rem; }
   .portrait-card { width: 8rem; }
   .portrait-card figcaption { font-size: .75rem; }
@@ -86,11 +92,20 @@ main > .muted { margin: .5rem 0 0; }
 }
 @media (max-width: 48rem) {
   .container { width: min(100% - 2rem, var(--content-width)); }
-  main.container > .muted { margin: .5rem 0 0; }
+  .hero { grid-template-columns: minmax(0, 1fr) 8rem; gap: 1.5rem; }
+  main.container > .resources { grid-template-columns: 1fr; }
   .hero { grid-template-columns: minmax(0, 1fr) 8rem; gap: 1.5rem; }
   .portrait-card { width: 8rem; }
-  main { padding-block: 1.25rem; }
-  .preview { width: clamp(10rem, 32vw, 14rem); flex-basis: clamp(10rem, 32vw, 14rem); }
+  main { flex: 1 0 auto; padding-block: 1.25rem; }
+  main.container { display: flex; flex-direction: column; }
+  main.container > .resources { grid-template-columns: 1fr; margin-top: 1rem; }
+  main.container > .muted { margin: .5rem 0 0; }
+  .card { align-items: stretch; flex-direction: column; gap: .875rem; padding: .875rem; }
+  .preview { width: 100%; flex-basis: auto; }
+  .card > div { width: 100%; align-self: stretch; }
+  .card h3 { font-size: .95rem; line-height: 1.4; }
+  .card p { font-size: .8rem; line-height: 1.45; }
+  .card h3, .card p { overflow-wrap: normal; }
   .portrait-card figcaption { padding-top: .2rem; }
 }
 @media (max-width: 36rem) {
@@ -104,10 +119,9 @@ main > .muted { margin: .5rem 0 0; }
   main { padding-block: 1.5rem; }
   main.container > .muted { margin-top: .35rem; }
   .resources { margin-top: 1rem; }
-  .card { align-items: stretch; flex-direction: column; gap: .875rem; padding: .875rem; }
-  .preview { width: 100%; flex-basis: auto; }
-  .card h3 { margin: .2rem 0; font-size: .95rem; line-height: 1.4; }
-  .card p { margin-top: .2rem; font-size: .8rem; line-height: 1.45; }
+  .card { gap: .75rem; padding: .75rem; }
+  .card h3 { margin: .2rem 0; }
+  .card p { margin-top: .2rem; }
   .source-label { height: 1.3rem; font-size: .7rem; }
   .source-label img { width: .9rem; height: .9rem; flex-basis: .9rem; }
   .play { width: 2rem; }

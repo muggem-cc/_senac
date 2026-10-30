@@ -1,12 +1,12 @@
-# Aula 6 — Vanilla Web
+# Simple Web Page — Vanilla Web
 
 Projeto de referências sobre Fábio Akita, feito com HTML, CSS e JavaScript vanilla.
 
 ## Estrutura
 
 ```text
-006/
-├── AULA.md
+simple-web-page/
+├── README.md
 ├── server.py
 └── web/
     ├── index.html
@@ -15,7 +15,7 @@ Projeto de referências sobre Fábio Akita, feito com HTML, CSS e JavaScript van
     └── assets/img/
 ```
 
-Inicie `python server.py` na raiz; o site fica em `http://localhost:8000/`.
+Inicie `python server.py` nesta pasta; o site fica em `http://localhost:8000/`.
 
 ## Decisões de implementação
 

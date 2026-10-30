@@ -1,10 +1,10 @@
-name: Publicar aula 006 no GitHub Pages
+name: Publicar simple-web-page no GitHub Pages
 
 on:
   push:
     branches: [main]
     paths:
-      - 'aulas/006/web/**'
+      - 'projetos/simple-web-page/web/**'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
 
@@ -30,6 +30,6 @@ jobs:
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: aulas/006/web
+          path: projetos/simple-web-page/web
       - id: deployment
         uses: actions/deploy-pages@v4

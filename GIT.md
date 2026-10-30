@@ -80,4 +80,4 @@ A busca por prefixo ajuda a revisar uma aula; filtros por caminho mostram a evol
 
 ## Branches
 
-Para mudanças que precisem de revisão ou sejam maiores que uma correção pequena, use uma branch descritiva, por exemplo `docs/organizacao-git` ou `aula-006/galeria`. Mantenha o escopo da branch claro, integre-a conforme o fluxo acordado para o projeto e não crie branches permanentes por aula sem uma necessidade concreta.
+Para mudanças que precisem de revisão ou sejam maiores que uma correção pequena, use uma branch descritiva, por exemplo `docs/organizacao-git` ou `projeto/simple-web-page`. Mantenha o escopo da branch claro, integre-a conforme o fluxo acordado para o projeto e não crie branches permanentes por aula sem uma necessidade concreta.
