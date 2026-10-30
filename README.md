@@ -55,4 +55,4 @@ O projeto `simple-web-page` é um site de referências sobre Fábio Akita, feito
 
 ## Uso educacional de inteligência artificial
 
-Uso IA como apoio nos estudos: para tirar dúvidas, pensar em soluções e revisar o que fiz. Confiro as sugestões e procuro entender o resultado; a responsabilidade pelo trabalho continua sendo minha.
+A inteligência artificial é usada como apoio nos estudos e em tarefas pontuais, como esclarecer dúvidas, explorar alternativas e revisar soluções. Suas sugestões também podem ajudar a interpretar orientações do docente, mas são avaliadas e verificadas antes de serem aplicadas. A responsabilidade pelo conteúdo e pelas decisões permanece com o estudante.
