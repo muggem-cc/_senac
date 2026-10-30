@@ -29,12 +29,12 @@ Repositório de estudos organizado por projetos e materiais. As aulas são ident
 
 ## Aulas e histórico
 
-`python tools/aula.py` calcula o número da aula pelos encontros de segunda, quarta e sexta. A referência confirmada fica local em `.git/aula-atual`; commits de aula usam o prefixo `aula NNN:`. Consulte [`GIT.md`](GIT.md) para o fluxo, confirmações e simulação de datas.
+`python tools/aula.py` calcula aula, data e dia da semana pelos encontros de segunda, quarta e sexta. Use `python tools/aula.py --commit-prefix` para gerar o prefixo `NNN-DIA-DD.MM.AA:`. A referência fica local em `.git/aula-atual`. Consulte [`GIT.md`](GIT.md) para o fluxo e simulação de datas.
 
 Faça commits pequenos e prefixe cada encontro pelo número calculado, acrescentando o projeto quando útil:
 
 ```text
-aula 007: site-referencias, documenta execução
+007-SEX-23.10.26: site-referencias, documenta execução
 ```
 
 Para consultar o histórico de uma aula, filtre as mensagens pelo prefixo, conforme os exemplos em [`GIT.md`](GIT.md). O histórico de um projeto continua sendo consultado pelo caminho.

@@ -19,7 +19,7 @@ Só compartilhe arquivos entre projetos quando houver uso real por mais de um. M
 
 ## Numeração de aulas e commits
 
-As aulas são eventos do calendário, não diretórios. O utilitário `tools/aula.py` calcula o número a partir de uma data-base e dos encontros de segunda, quarta e sexta. O marcador local `.git/aula-atual` guarda a última aula confirmada e não é versionado. A contagem automática pressupõe que as aulas ocorreram; faltas e feriados exigem corrigir a referência antes de avançar.
+As aulas são eventos do calendário, não diretórios. O utilitário `tools/aula.py` calcula o número e a próxima data prevista a partir de uma referência local e dos encontros de segunda, quarta e sexta. Se a data atual passar por um dia letivo sem confirmação da aula, o número avança e a saída indica falta provável; ele não consegue distinguir falta de feriado ou cancelamento, então ajuste a referência nesses casos. O marcador `.git/aula-atual` não é versionado.
 
 ```sh
 python tools/aula.py                    # consulta aula vigente
@@ -27,14 +27,14 @@ python tools/aula.py --date 2026-10-23  # simula uma data
 python tools/aula.py --advance          # confirma a aula após registrá-la
 ```
 
-Registre cada encontro em um commit com prefixo `aula NNN:` (por exemplo, `aula 007: introduz seletores CSS`), podendo incluir um escopo de projeto depois do número. `--advance` só atualiza o marcador em dias letivos e exige que todos os números desde a referência estejam no histórico. O utilitário não cria commits. Para reconstruir a referência, use a data e o número conhecidos e confira os commits correspondentes.
+Registre cada encontro em um commit com o formato `NNN-DIA-DD.MM.AA: descrição`, por exemplo `007-SEX-23.10.26: introduz seletores CSS`. Use `python tools/aula.py --commit-prefix` para obter o prefixo calculado. `--advance` só atualiza o marcador em dias letivos e exige que todos os números desde a referência estejam no histórico. O utilitário não cria commits. Para reconstruir a referência, use a data e o número conhecidos e confira os commits correspondentes.
 
 ## Commits
 
-Escreva mensagens em português, concisas e no imperativo ou como descrição objetiva. Prefixe com o número da aula vigente; se houver contexto de projeto, inclua-o depois do número:
+Escreva mensagens em português, concisas e no imperativo ou como descrição objetiva. Use o formato `NNN-DIA-DD.MM.AA: descrição`:
 
 ```text
-aula 007: site-referencias, documenta execução
+007-SEX-23.10.26: site-referencias, documenta execução
 ```
 
 Para trabalho que atravesse projetos, nomeie o tema compartilhado:
@@ -61,7 +61,7 @@ Não reescreva histórico publicado nem descarte alterações do usuário sem au
 
 ```sh
 # Histórico de uma aula (prefixo na mensagem)
-git log --all --oneline --grep='^aula 007:'
+git log --all --oneline --grep='^007-SEX-23\.10\.26:'
 
 # Histórico de um projeto/arquivo
 git log --oneline --follow -- projetos/site-referencias/server.py
