@@ -1,34 +1,46 @@
 # Organização e fluxo de trabalho com Git
 
-Este documento define como preservar a organização das aulas e manter um histórico útil neste monorepo.
+Este documento define como organizar projetos e registrar aulas no histórico deste monorepo.
 
 ## Princípios
 
-- Há um único repositório Git na raiz. As pastas de aula não são repositórios separados e não usam submodules.
-- O conteúdo de cada aula fica isolado em `aulas/NNN/`. Histórico por pasta é obtido com filtros do Git; não representa um repositório ou branch independente.
-- Commits devem ser pequenos, coerentes e focados. Não misture tarefas de aulas diferentes só por conveniência.
+- Há um único repositório Git na raiz; não criar repositórios aninhados nem submodules.
+- A numeração da aula é calculada pelo calendário letivo e registrada nos assuntos dos commits. Pastas `projetos/` organizam projetos, não aulas.
+- Commits devem ser pequenos, coerentes e focados em um encontro e seu escopo. Não misture tarefas não relacionadas só por conveniência.
 - Não inclua arquivos gerados, caches, credenciais, dependências instaladas ou configurações pessoais.
 - `.gitattributes` padroniza finais de linha para LF e evita conversão dos assets WebP; mantenha-o atualizado ao introduzir formatos binários ou convenções específicas.
 - Preserve alterações existentes. Antes de commitar, confira cuidadosamente o diff e o estado do diretório.
 
 ## Estrutura e escopo
 
-Use identificadores de três dígitos, em ordem (`aulas/001/`, `aulas/002/` etc.). Mantenha dentro da aula seu código, exercícios, notas e instruções. Se uma aula tiver projeto, documente objetivo, estrutura, comandos de execução e validação em `README.md` ou `AULA.md`.
+Organize por projeto, com identificadores estáveis (`projetos/site-referencias/`, por exemplo), sem atrelar a pasta à aula em que começou. Exercícios e notas que não pertencem a um projeto ficam em uma área de estudos apropriada. Documente objetivo, estrutura, execução e validação em cada projeto.
 
-Só compartilhe arquivos entre aulas quando houver uso real por mais de uma. Mudanças compartilhadas ficam em uma localização comum apropriada e devem declarar esse escopo no commit. Não mova conteúdo entre aulas sem necessidade ou autorização.
+Só compartilhe arquivos entre projetos quando houver uso real por mais de um. Mudanças compartilhadas ficam em localização comum apropriada e declaram seu escopo no commit. Não mova conteúdo existente sem necessidade ou autorização.
+
+## Numeração de aulas e commits
+
+As aulas são eventos do calendário, não diretórios. O utilitário `tools/aula.py` calcula o número a partir de uma data-base e dos encontros de segunda, quarta e sexta. O marcador local `.git/aula-atual` guarda a última aula confirmada e não é versionado. A contagem automática pressupõe que as aulas ocorreram; faltas e feriados exigem corrigir a referência antes de avançar.
+
+```sh
+python tools/aula.py                    # consulta aula vigente
+python tools/aula.py --date 2026-10-23  # simula uma data
+python tools/aula.py --advance          # confirma a aula após registrá-la
+```
+
+Registre cada encontro em um commit com prefixo `aula NNN:` (por exemplo, `aula 007: introduz seletores CSS`), podendo incluir um escopo de projeto depois do número. `--advance` só atualiza o marcador em dias letivos e exige que todos os números desde a referência estejam no histórico. O utilitário não cria commits. Para reconstruir a referência, use a data e o número conhecidos e confira os commits correspondentes.
 
 ## Commits
 
-Escreva mensagens em português, concisas e no imperativo ou como descrição objetiva. Prefixe com o escopo quando houver uma única aula:
+Escreva mensagens em português, concisas e no imperativo ou como descrição objetiva. Prefixe com o número da aula vigente; se houver contexto de projeto, inclua-o depois do número:
 
 ```text
-aulas/006: documenta execução do projeto
+aula 007: site-referencias, documenta execução
 ```
 
-Para trabalho que atravesse escopos, nomeie o tema compartilhado ou as aulas envolvidas:
+Para trabalho que atravesse projetos, nomeie o tema compartilhado:
 
 ```text
-aulas/006, raiz: adiciona documentação do fluxo Git
+aula 007: raiz, documenta fluxo Git
 ```
 
 Evite mensagens vagas como `ajustes`, `update` ou `correções`. Um commit deve representar uma unidade que possa ser entendida e revisada isoladamente.
@@ -38,7 +50,7 @@ Evite mensagens vagas como `ajustes`, `update` ou `correções`. Um commit deve 
 1. Confira branch e estado: `git status --short --branch`.
 2. Revise o diff, incluindo arquivos novos: `git diff` e `git diff --no-index /dev/null caminho/do/arquivo` quando necessário.
 3. Verifique que caches, segredos e artefatos não serão incluídos.
-4. Execute validações proporcionais às mudanças e registre resultados relevantes na documentação da aula, se apropriado.
+4. Execute validações proporcionais às mudanças e registre resultados relevantes na documentação do projeto, se apropriado.
 5. Faça stage explícito por caminho; evite `git add .` quando houver arquivos de escopos diferentes ou alterações não relacionadas.
 6. Revise o conteúdo staged com `git diff --cached` e confirme apenas quando o escopo estiver correto.
 7. Após o commit, confirme o resultado com `git status --short --branch`.
@@ -48,23 +60,23 @@ Não reescreva histórico publicado nem descarte alterações do usuário sem au
 ## Consultar histórico e diferenças por aula
 
 ```sh
-# Histórico de uma aula
-git log --oneline -- aulas/006
+# Histórico de uma aula (prefixo na mensagem)
+git log --all --oneline --grep='^aula 007:'
 
-# Histórico detalhado de um arquivo
-git log --follow -- aulas/006/server.py
+# Histórico de um projeto/arquivo
+git log --oneline --follow -- projetos/site-referencias/server.py
 
-# Mudanças locais em uma aula
-git diff -- aulas/006
+# Mudanças locais no projeto
+git diff -- projetos/site-referencias
 
-# Arquivos staged de uma aula
-git diff --cached -- aulas/006
+# Arquivos staged no projeto
+git diff --cached -- projetos/site-referencias
 
 # Arquivos alterados, agrupados por status
 git status --short
 ```
 
-Os filtros por caminho ajudam a revisar a evolução de uma aula, mas commits que incluem arquivos compartilhados podem aparecer no histórico de mais de uma pasta.
+A busca por prefixo ajuda a revisar uma aula; filtros por caminho mostram a evolução de projetos e arquivos. Commits que incluem arquivos compartilhados podem aparecer no histórico de mais de um projeto.
 
 ## Branches
 

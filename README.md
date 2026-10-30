@@ -1,15 +1,15 @@
 # SENAC — estudos de desenvolvimento web
 
-Repositório de estudos organizado por aulas. Cada pasta em `aulas/` mantém seu conteúdo e contexto; o Git é único na raiz, sem repositórios aninhados. Para o fluxo detalhado de branches, commits e revisão por aula, consulte [`GIT.md`](GIT.md).
+Repositório de estudos organizado por projetos e materiais. As aulas são identificadas pelos dias de encontro e registradas nos commits, não por pastas; o Git é único na raiz, sem repositórios aninhados. Para o fluxo de numeração e commits, consulte [`GIT.md`](GIT.md).
 
 ## Organização
 
 ```text
 .
-├── aulas/
-│   ├── 001/
-│   ├── 002/
-│   └── ...
+├── projetos/
+│   └── nome-do-projeto/
+├── estudos/
+│   └── notas-e-exercicios/
 ├── .gitattributes
 ├── .gitignore
 ├── AGENTS.md
@@ -18,29 +18,24 @@ Repositório de estudos organizado por aulas. Cada pasta em `aulas/` mantém seu
 └── README.md
 ```
 
-- Use identificadores numéricos com três dígitos (`001`, `002`, ...), em ordem de aula.
-- Mantenha exercícios, projetos, notas e instruções específicas dentro da pasta da aula correspondente.
-- Cada aula com conteúdo deve ter um `README.md` ou `AULA.md` com objetivo, estrutura, como executar e validações. Não crie arquivos vazios apenas para preencher um modelo.
-- Dependências e configurações pertencem à aula que as utiliza. Só coloque recursos na raiz quando forem realmente compartilhados.
+- Organize projetos em `projetos/` com nomes estáveis; não numere pastas pela aula em que foram trabalhados.
+- Mantenha exercícios e notas em `estudos/` quando não fizerem parte de um projeto.
+- Cada projeto deve ter documentação suficiente para explicar objetivo, execução e validação.
+- Dependências e configurações pertencem ao projeto que as utiliza. Só coloque recursos na raiz quando forem realmente compartilhados.
 - Evite arquivos gerados, caches, credenciais e configurações pessoais no controle de versão.
 
-## Histórico por aula
+## Aulas e histórico
 
-Faça commits pequenos, focados em uma aula e com escopo explícito, por exemplo:
+`python tools/aula.py` calcula o número da aula pelos encontros de segunda, quarta e sexta. A referência confirmada fica local em `.git/aula-atual`; commits de aula usam o prefixo `aula NNN:`. Consulte [`GIT.md`](GIT.md) para o fluxo, confirmações e simulação de datas.
+
+Faça commits pequenos e prefixe cada encontro pelo número calculado, acrescentando o projeto quando útil:
 
 ```text
-aulas/006: documenta como executar o projeto
+aula 007: site-referencias, documenta execução
 ```
 
-O histórico Git é compartilhado, mas pode ser consultado por pasta:
+Para consultar o histórico de uma aula, filtre as mensagens pelo prefixo, conforme os exemplos em [`GIT.md`](GIT.md). O histórico de um projeto continua sendo consultado pelo caminho.
 
-```sh
-git log --oneline -- aulas/006
-git diff -- aulas/006
-```
+## Projeto atual
 
-Mudanças compartilhadas ou que afetem várias aulas devem indicar isso no escopo do commit.
-
-## Aula 006
-
-Consulte [`aulas/006/AULA.md`](aulas/006/AULA.md) para estrutura, execução e validação do projeto web.
+O site de referências atual está em `aulas/006/` e sua estrutura está documentada em `aulas/006/AULA.md`. A migração para uma pasta de projeto estável deve atualizar também o workflow do GitHub Pages e preservar alterações locais.
