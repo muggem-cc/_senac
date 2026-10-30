@@ -10,6 +10,8 @@ venv/
 .env
 .env.*
 !.env.example
+_sec/*
+!_sec/*.sh
 
 # Sistema operacional e editores
 .DS_Store

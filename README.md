@@ -55,4 +55,4 @@ O projeto `simple-web-page` é um site de referências sobre Fábio Akita, feito
 
 ## Uso educacional de inteligência artificial
 
-Ferramentas de inteligência artificial podem apoiar atividades pontuais do processo de aprendizagem, como esclarecer dúvidas, explorar alternativas ou revisar uma solução. Seu uso é complementar: o estudante conduz o trabalho, compreende e verifica as sugestões recebidas e responde pelas decisões e pelo resultado final, em conformidade com as orientações do docente.
+Uso IA como apoio nos estudos: para tirar dúvidas, pensar em soluções e revisar o que fiz. Confiro as sugestões e procuro entender o resultado; a responsabilidade pelo trabalho continua sendo minha.
