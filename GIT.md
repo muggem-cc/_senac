@@ -13,7 +13,7 @@ Este documento define como organizar projetos e registrar aulas no histórico de
 
 ## Estrutura e escopo
 
-Organize por projeto, com identificadores estáveis (`projetos/site-referencias/`, por exemplo), sem atrelar a pasta à aula em que começou. Exercícios e notas que não pertencem a um projeto ficam em uma área de estudos apropriada. Documente objetivo, estrutura, execução e validação em cada projeto.
+Organize por projeto, com identificadores estáveis (`projetos/site-referencias/`, por exemplo), sem atrelar a pasta à aula em que começou. Exercícios e notas que não pertencem a um projeto ficam em `estudos/`; materiais brutos de aula podem ficar em `aulas/`, sem diretórios por número do encontro. Documente objetivo, estrutura, execução e validação em cada projeto.
 
 Só compartilhe arquivos entre projetos quando houver uso real por mais de um. Mudanças compartilhadas ficam em localização comum apropriada e declaram seu escopo no commit. Não mova conteúdo existente sem necessidade ou autorização.
 

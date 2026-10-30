@@ -10,6 +10,7 @@ Repositório de estudos organizado por projetos e materiais. As aulas são ident
 │   └── nome-do-projeto/
 ├── estudos/
 │   └── notas-e-exercicios/
+├── aulas/             # materiais brutos das aulas, sem numeração de diretório
 ├── tools/
 │   └── aula.py
 ├── .gitattributes
@@ -21,7 +22,7 @@ Repositório de estudos organizado por projetos e materiais. As aulas são ident
 ```
 
 - Organize projetos em `projetos/` com nomes estáveis; não numere pastas pela aula em que foram trabalhados.
-- Mantenha exercícios e notas em `estudos/` quando não fizerem parte de um projeto.
+- Mantenha exercícios e notas em `estudos/` quando não fizerem parte de um projeto. Use `aulas/` apenas para materiais da aula que não sejam projetos; não crie subpastas numeradas por encontro.
 - Cada projeto deve ter documentação suficiente para explicar objetivo, execução e validação.
 - Dependências e configurações pertencem ao projeto que as utiliza. Só coloque recursos na raiz quando forem realmente compartilhados.
 - Evite arquivos gerados, caches, credenciais e configurações pessoais no controle de versão.
