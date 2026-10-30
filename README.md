@@ -1,44 +1,54 @@
-# SENAC — estudos de desenvolvimento web
+# SENAC — Desenvolvimento Web
 
-Repositório de estudos organizado por projetos e materiais. As aulas são identificadas pelos dias de encontro e registradas nos commits, não por pastas; o Git é único na raiz, sem repositórios aninhados. Para o fluxo de numeração e commits, consulte [`GIT.md`](GIT.md).
+Repositório de estudos organizado por projetos. As aulas são encontros de segunda, quarta e sexta, identificados por número, dia e data nos commits — não por diretórios. O repositório Git é único na raiz.
 
-## Organização
+## Estrutura
 
 ```text
 .
-├── projetos/
-│   └── nome-do-projeto/
-├── estudos/
-│   └── notas-e-exercicios/
-├── aulas/             # materiais brutos das aulas, sem numeração de diretório
+├── projetos/                 # projetos independentes, com nomes estáveis
+│   └── simple-web-page/
+├── estudos/                  # exercícios e anotações não ligados a projetos
+├── aulas/                    # materiais de aula que não sejam projetos
 ├── tools/
-│   └── aula.py
-├── .gitattributes
-├── .gitignore
-├── AGENTS.md
-├── GIT.md
+│   └── aula.py               # cálculo e identificação da aula vigente
+├── .github/workflows/        # automações do GitHub
+├── AGENTS.md                 # orientações para agentes
+├── GIT.md                    # fluxo de trabalho e convenções Git
 ├── LICENSE
 └── README.md
 ```
 
-- Organize projetos em `projetos/` com nomes estáveis; não numere pastas pela aula em que foram trabalhados.
-- Mantenha exercícios e notas em `estudos/` quando não fizerem parte de um projeto. Use `aulas/` apenas para materiais da aula que não sejam projetos; não crie subpastas numeradas por encontro.
-- Cada projeto deve ter documentação suficiente para explicar objetivo, execução e validação.
-- Dependências e configurações pertencem ao projeto que as utiliza. Só coloque recursos na raiz quando forem realmente compartilhados.
-- Evite arquivos gerados, caches, credenciais e configurações pessoais no controle de versão.
+- Não numere pastas de projeto pela aula em que foram iniciadas; um projeto pode atravessar várias aulas.
+- Use `aulas/` para materiais de aula que não pertencem a um projeto e `estudos/` para exercícios e notas avulsos.
+- Consulte o README de cada projeto para objetivo, execução e validação.
 
-## Aulas e histórico
+## Aulas e commits
 
-`python tools/aula.py` calcula aula, data e dia da semana pelos encontros de segunda, quarta e sexta. Use `python tools/aula.py --commit-prefix` para gerar o prefixo `NNN-DIA-DD.MM.AA:`. A referência fica local em `.git/aula-atual`. Consulte [`GIT.md`](GIT.md) para o fluxo e simulação de datas.
+O calendário considera encontros às segundas, quartas e sextas. O utilitário calcula o número e a data prevista da aula com base no marcador local `.git/aula-atual`.
 
-Faça commits pequenos e prefixe cada encontro pelo número calculado, acrescentando o projeto quando útil:
+```sh
+# Consultar aula prevista e situação de hoje
+python tools/aula.py
 
-```text
-007-SEX-23.10.26: site-referencias, documenta execução
+# Gerar o prefixo de commit da aula
+python tools/aula.py --commit-prefix
+
+# Simular uma data
+python tools/aula.py --date 2026-10-23
+
+# Confirmar a aula no marcador local após registrá-la
+python tools/aula.py --advance
 ```
 
-Para consultar o histórico de uma aula, filtre as mensagens pelo prefixo, conforme os exemplos em [`GIT.md`](GIT.md). O histórico de um projeto continua sendo consultado pelo caminho.
+Use nos commits o formato `NNN-DIA-DD.MM.AA: descrição`, por exemplo:
+
+```text
+007-SEX-23.10.26: introduz seletores CSS
+```
+
+Se passar um dia letivo sem registro, a contagem avança e o programa indica falta provável. O calendário sozinho não distingue falta de feriado ou cancelamento: nesses casos, ajuste a referência local. O marcador dentro de `.git/` não é versionado; consulte [`GIT.md`](GIT.md) para inicialização, avanço e recuperação da referência.
 
 ## Projeto atual
 
-O site de referências está em [`projetos/simple-web-page/`](projetos/simple-web-page/), com estrutura, execução e validação documentadas no `README.md` do projeto.
+O projeto `simple-web-page` é um site de referências sobre Fábio Akita, feito com HTML, CSS e JavaScript vanilla. Consulte [`projetos/simple-web-page/README.md`](projetos/simple-web-page/README.md) para estrutura, execução e validação.
