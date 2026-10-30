@@ -6,12 +6,10 @@ Repositório de estudos organizado por projetos. As aulas são encontros de segu
 
 ```text
 .
-├── projetos/                 # projetos independentes, com nomes estáveis
-│   └── simple-web-page/
-├── estudos/                  # exercícios e anotações não ligados a projetos
-├── aulas/                    # materiais de aula que não sejam projetos
+├── projetos/
+│   └── simple-web-page/      # site de referências em HTML, CSS e JavaScript
 ├── tools/
-│   └── aula.py               # cálculo e identificação da aula vigente
+│   └── aula.py               # cálculo da aula e prefixo para commits
 ├── .github/workflows/        # automações do GitHub
 ├── AGENTS.md                 # orientações para agentes
 ├── GIT.md                    # fluxo de trabalho e convenções Git
@@ -19,9 +17,7 @@ Repositório de estudos organizado por projetos. As aulas são encontros de segu
 └── README.md
 ```
 
-- Não numere pastas de projeto pela aula em que foram iniciadas; um projeto pode atravessar várias aulas.
-- Use `aulas/` para materiais de aula que não pertencem a um projeto e `estudos/` para exercícios e notas avulsos.
-- Consulte o README de cada projeto para objetivo, execução e validação.
+No momento, o repositório contém um projeto. Novos projetos ficam em `projetos/`, cada um em uma pasta com nome estável. Aulas são registradas no histórico Git, não em diretórios numerados.
 
 ## Aulas e commits
 
