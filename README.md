@@ -52,3 +52,7 @@ Se passar um dia letivo sem registro, a contagem avança e o programa indica fal
 ## Projeto atual
 
 O projeto `simple-web-page` é um site de referências sobre Fábio Akita, feito com HTML, CSS e JavaScript vanilla. Consulte [`projetos/simple-web-page/README.md`](projetos/simple-web-page/README.md) para estrutura, execução e validação.
+
+## Uso educacional de inteligência artificial
+
+Ferramentas de inteligência artificial podem apoiar atividades pontuais do processo de aprendizagem, como esclarecer dúvidas, explorar alternativas ou revisar uma solução. Seu uso é complementar: o estudante conduz o trabalho, compreende e verifica as sugestões recebidas e responde pelas decisões e pelo resultado final, em conformidade com as orientações do docente.
