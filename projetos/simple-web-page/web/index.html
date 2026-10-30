@@ -14,45 +14,95 @@
   </head>
   <body>
     <header class="site-header">
-      <div class="container hero">
-        <div>
-          <p class="eyebrow">Desenvolvimento Web / Aula 06</p>
-          <h1>Aprofundando-se<br>em Vanilla Web:</h1>
-          <p class="muted">HTML · CSS · JavaScript</p>
+      <div class="container masthead">
+        <a class="brand" href="https://www.senac.br/" target="_blank" rel="noopener noreferrer" aria-label="Senac — página inicial">
+          <img src="assets/img/senac-logo.svg" alt="Senac" width="130" height="48">
+        </a>
+        <div class="site-title">
+          <p class="eyebrow"><span>Início</span><span aria-hidden="true">/</span><span>Aula 006</span><span class="class-date">Quinta-feira, 30.10.25</span></p>
+          <h1>A Simple Web Page...</h1>
         </div>
-        <figure class="portrait-card">
-          <img class="portrait" src="assets/img/fabio-akita.webp" alt="Fábio Akita em uma conversa diante de um microfone" width="420" height="560">
-          <figcaption>Fábio Akita</figcaption>
-        </figure>
+        <span class="course-label">HTML · CSS · JavaScript</span>
       </div>
     </header>
 
-    <main class="container">
-      <h2>Referências de Fábio Akita</h2>
-      <p class="muted">Conteúdos sobre desenvolvimento de software e tecnologia.</p>
-      <ul class="resources">
-        <li class="card">
-          <a class="preview" href="https://akitaonrails.com/" data-viewer="site" aria-label="Abrir AkitaOnRails.com no visualizador">
-            <img class="site-preview-logo" src="assets/img/akitaonrails-logo.webp" alt="">
-          </a>
-          <div><small class="source-label"><img src="assets/img/icon-blog.webp" alt="" width="16" height="16"> Blog</small><h3><a href="https://akitaonrails.com/" target="_blank" rel="noopener noreferrer">AkitaOnRails</a></h3><p class="muted">Mais de 1.000 posts sobre tecnologia e desenvolvimento de software.</p></div>
-        </li>
-        <li class="card">
-          <a class="preview" href="https://www.youtube.com/watch?v=SmYQcaP1Jgw" data-viewer="video" aria-label="Assistir: Modelagem de Software é Difícil?">
-            <img src="assets/img/youtube-modelagem.webp" alt="" loading="lazy" width="640" height="360"><span class="play" aria-hidden="true">▶</span>
-          </a>
-          <div><small class="source-label"><img src="assets/img/icon-youtube.webp" alt="" width="16" height="16"> YouTube</small><h3><a href="https://www.youtube.com/watch?v=SmYQcaP1Jgw" target="_blank" rel="noopener noreferrer">Modelagem de Software é Difícil? | “Ver” vs “Enxergar”</a></h3><p class="muted">Reflexões sobre modelagem e arquitetura.</p></div>
-        </li>
-        <li class="card">
-          <a class="preview" href="https://www.youtube.com/watch?v=MI9cdxETA4c" data-viewer="video" aria-label="Assistir: Python? Java? Rust? Qual a Diferença?">
-            <img src="assets/img/youtube-linguagens.webp" alt="" loading="lazy" width="640" height="360"><span class="play" aria-hidden="true">▶</span>
-          </a>
-          <div><small class="source-label"><img src="assets/img/icon-youtube.webp" alt="" width="16" height="16"> YouTube</small><h3><a href="https://www.youtube.com/watch?v=MI9cdxETA4c" target="_blank" rel="noopener noreferrer">Python? Java? Rust? Qual a Diferença?</a></h3><p class="muted">Comparação entre linguagens e conceitos.</p></div>
-        </li>
-      </ul>
+    <main class="container page-layout">
+      <aside class="sidebar" aria-labelledby="author-heading">
+        <figure class="portrait-card">
+          <img class="portrait" src="assets/img/fabio-akita.webp" alt="Fábio Akita em uma conversa diante de um microfone" width="420" height="560">
+        </figure>
+        <h2 id="author-heading">Fabio Makita</h2>
+        <p class="author-bio">Engenheiro de software e criador de conteúdo sobre desenvolvimento e tecnologia.</p>
+        <ul class="author-details">
+          <li>Software developer</li>
+          <li>Programmer</li>
+          <li>Software engineer</li>
+        </ul>
+        <p class="author-location"><img class="icon" src="assets/img/icon-location.svg" alt=""> Montana, USA</p>
+        <nav class="author-links" aria-label="Redes e links de Fabio Makita">
+          <a href="https://x.com/akitaonrails" target="_blank" rel="noopener noreferrer"><img class="icon" src="assets/img/icon-x.svg" alt=""> <span>@AkitaOnRails</span></a>
+          <a href="https://akitaonrails.com/" target="_blank" rel="noopener noreferrer"><img class="icon" src="assets/img/icon-blog.svg" alt=""> <span>Akita On Rails</span></a>
+          <a href="https://ailair.akitaonrails.com/" target="_blank" rel="noopener noreferrer"><img class="icon" src="assets/img/icon-page.svg" alt=""> <span>Akita's AI Lair</span></a>
+          <a href="https://themakitachronicles.com/" target="_blank" rel="noopener noreferrer"><img class="icon" src="assets/img/icon-newsletter.svg" alt=""> <span>The Makita Chronicles</span></a>
+          <a href="https://loja.uiclap.com/titulo/ua213594" target="_blank" rel="noopener noreferrer"><img class="icon" src="assets/img/icon-book.svg" alt=""> <span>Livro · UICLAP</span></a>
+        </nav>
+      </aside>
+
+      <section class="content" aria-label="Conteúdos de Fábio Akita">
+        <h2 class="content-heading">Vídeos em destaque</h2>
+        <ul class="resources">
+          <li class="card">
+            <a class="preview" href="https://www.youtube.com/watch?v=SmYQcaP1Jgw" data-viewer="video" aria-label="Assistir: Modelagem de Software é Difícil?">
+              <img src="assets/img/youtube-modelagem.webp" alt="" loading="lazy" width="640" height="360"><span class="play" aria-hidden="true">▶</span>
+            </a>
+            <div>
+              <small class="source-label"><img src="assets/img/icon-youtube.webp" alt="" width="16" height="16"> YouTube</small>
+              <h3><a href="https://www.youtube.com/watch?v=SmYQcaP1Jgw" target="_blank" rel="noopener noreferrer">Modelagem de Software é Difícil? | “Ver” vs “Enxergar”</a></h3>
+              <p class="muted">Reflexões sobre modelagem e arquitetura.</p>
+            </div>
+          </li>
+          <li class="card">
+            <a class="preview" href="https://www.youtube.com/watch?v=MI9cdxETA4c" data-viewer="video" aria-label="Assistir: Python? Java? Rust? Qual a Diferença?">
+              <img src="assets/img/youtube-linguagens.webp" alt="" loading="lazy" width="640" height="360"><span class="play" aria-hidden="true">▶</span>
+            </a>
+            <div>
+              <small class="source-label"><img src="assets/img/icon-youtube.webp" alt="" width="16" height="16"> YouTube</small>
+              <h3><a href="https://www.youtube.com/watch?v=MI9cdxETA4c" target="_blank" rel="noopener noreferrer">Python? Java? Rust? Qual a Diferença?</a></h3>
+              <p class="muted">Comparação entre linguagens e conceitos.</p>
+            </div>
+          </li>
+          <li class="card">
+            <a class="preview" href="https://www.youtube.com/watch?v=sx4hAHhO9CY&t=95s" data-viewer="video" aria-label="Assistir: Conhecimentos Básicos para Iniciantes em Programação">
+              <img src="assets/img/youtube-iniciantes.webp" alt="" loading="lazy" width="480" height="360"><span class="play" aria-hidden="true">▶</span>
+            </a>
+            <div>
+              <small class="source-label"><img src="assets/img/icon-youtube.webp" alt="" width="16" height="16"> YouTube</small>
+              <h3><a href="https://www.youtube.com/watch?v=sx4hAHhO9CY&t=95s" target="_blank" rel="noopener noreferrer">Conhecimentos Básicos para Iniciantes em Programação</a></h3>
+              <p class="muted">Série “Começando aos 40”.</p>
+            </div>
+          </li>
+          <li class="card">
+            <a class="preview" href="https://www.youtube.com/watch?v=oUPaJxk6TZ0" data-viewer="video" aria-label="Assistir: Guia Definitivo de Aprendendo a Aprender">
+              <img src="assets/img/youtube-aprender.webp" alt="" loading="lazy" width="480" height="360"><span class="play" aria-hidden="true">▶</span>
+            </a>
+            <div>
+              <small class="source-label"><img src="assets/img/icon-youtube.webp" alt="" width="16" height="16"> YouTube</small>
+              <h3><a href="https://www.youtube.com/watch?v=oUPaJxk6TZ0" target="_blank" rel="noopener noreferrer">Guia DEFINITIVO de Aprendendo a Aprender</a></h3>
+              <p class="muted">A maior bronca da sua vida [RATED R].</p>
+            </div>
+          </li>
+        </ul>
+      </section>
     </main>
 
-    <footer class="site-footer"><div class="container">KWWN <span class="muted">· Aula 6</span></div></footer>
+    <footer class="site-footer">
+      <div class="container">
+        <span class="footer-credit">KWWN</span>
+        <a class="github-link" href="https://github.com/muggem-cc/_senac" target="_blank" rel="noopener noreferrer" aria-label="Repositório do projeto no GitHub">
+          <img src="assets/img/github.svg" alt="" width="20" height="20"> GitHub
+        </a>
+      </div>
+    </footer>
 
     <dialog class="viewer" aria-label="Visualizador">
       <form method="dialog"><button class="viewer-close" aria-label="Fechar visualizador">×</button></form>
