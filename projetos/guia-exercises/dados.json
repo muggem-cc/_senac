@@ -1,0 +1,27 @@
+{
+  "atividade-03-01": {
+    "nome": "Ana Costa",
+    "idade": 19,
+    "bairro": "Centro"
+  },
+  "atividade-03-02": {
+    "quantidade": 80,
+    "precoUnitario": 0.35
+  },
+  "atividade-03-03": {
+    "temperatura": "36,7"
+  },
+  "atividade-03-04": {
+    "hospede": "Lia",
+    "diarias": 3,
+    "valorDiaria": 160
+  },
+  "atividade-03-05": {
+    "placa": "ABC1D23",
+    "distancia": 12.5
+  },
+  "atividade-04-01": {
+    "peso": 72,
+    "altura": 1.8
+  }
+}

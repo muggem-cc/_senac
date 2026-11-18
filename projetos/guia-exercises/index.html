@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f7f8f5">
+<title>Guia de JavaScript</title>
+<link rel="stylesheet" href="/guia-exercises/web/css/style.css">
+</head>
+<body><div class="shell">
+<header><span class="brand">▣ Guia de JavaScript</span><span class="muted">Valtemir Procópio de Lima</span></header>
+<main><section id="home"><p class="eyebrow">Caderno de exercícios</p><h1>Pratique no seu ritmo.</h1><p class="intro">As atividades são listadas automaticamente. Abra uma para executar seu código no mini terminal.</p><div class="heading"><h2>Atividades</h2><span class="muted" id="count">Carregando…</span></div><div class="grid" id="activities"></div></section>
+<section id="runner" hidden><button id="back" type="button">← Atividades</button><p class="eyebrow">Mini terminal · Node.js</p><h1 id="title">Atividade</h1><div id="terminal"><div id="toolbar"><span class="toolbar-title">content.js</span><span class="status" id="status">Pronto</span><button id="play">▶ Play</button><button id="stop" disabled>■ Stop</button></div><div id="output" role="log" aria-live="polite"></div><form id="input-form" hidden><input id="input" autocomplete="off" aria-label="Entrada do programa"><button id="send">Enviar</button></form></div><p class="muted">O script executa no computador. Digite no terminal quando ele solicitar uma entrada.</p></section>
+</main></div>
+<script>
+const $=s=>document.querySelector(s),list=$('#activities'),api='/guia-exercises/api';let id=null,stream=null,running=false,waiting=false,promptText='',promptTimer;
+function renderRoute(){id=location.hash.slice(1);const valid=/^atividade-\d{2}-\d{2}$/.test(id);$('#home').hidden=valid;$('#runner').hidden=!valid;if(valid){$('#title').textContent=id.replace('atividade-','Atividade ').replace('-',' · ');$('#output').replaceChildren();stopUI()}}
+function line(text,cls=''){const el=document.createElement('div');el.textContent=text;el.className=cls;$('#output').append(el);$('#output').scrollTop=$('#output').scrollHeight}
+function input(show){waiting=show;$('#input-form').hidden=!show;$('#input').disabled=!show;if(show)$('#input').focus();else $('#input').value=''}
+function stopUI(){if(stream)stream.close();stream=null;clearTimeout(promptTimer);input(false);running=false;$('#play').disabled=false;$('#stop').disabled=true;$('#status').textContent='Pronto'}
+async function load(){try{const r=await fetch(`${api}/activities`);if(!r.ok)throw Error();const items=await r.json();$('#count').textContent=`${items.length} atividades`;list.replaceChildren();for(const item of items){const a=document.createElement('a');a.className='card';a.href='#'+item.id;const badge=document.createElement('span');badge.className='badge';badge.textContent=item.id.replace('atividade-','ATIVIDADE ');const title=document.createElement('h3');title.textContent=item.title;const desc=document.createElement('p');desc.textContent='Executar no mini terminal';a.append(badge,title,desc);list.append(a)}if(!items.length)list.innerHTML='<div class="empty">Crie uma pasta atividade-XX-YY com content.js para listar uma atividade.</div>'}catch{$('#count').textContent='Servidor indisponível';list.innerHTML='<div class="empty">Inicie o servidor para carregar atividades.</div>'}}
+$('#back').onclick=()=>location.hash='';window.addEventListener('hashchange',renderRoute);
+$('#play').onclick=()=>{if(!id||running)return;$('#output').replaceChildren();line('> node '+id+'/content.js');running=true;$('#play').disabled=true;$('#stop').disabled=false;$('#status').textContent='Executando';stream=new EventSource(`${api}/activities/${id}/run`);stream.onmessage=e=>{const m=JSON.parse(e.data);if(m.type==='prompt'){promptText=m.text;line(m.text,'prompt');input(true);clearTimeout(promptTimer);promptTimer=setTimeout(()=>{if(waiting)$('#status').textContent='Aguardando entrada'},1000)}else if(m.type==='output'){clearTimeout(promptTimer);line(m.text);if(waiting)input(false)}else if(m.type==='exit'){line(m.text);stopUI()}};stream.onerror=()=>{if(running){line('Conexão encerrada.');stopUI()}}};
+$('#stop').onclick=async()=>{await fetch(`${api}/activities/${id}/stop`,{method:'POST'});line('> Execução interrompida.');stopUI()};
+$('#input-form').onsubmit=async e=>{e.preventDefault();if(!waiting)return;const value=$('#input').value;line(value);input(false);await fetch(`${api}/activities/${id}/input`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({value})})};
+load();renderRoute();
+</script></body></html>
